@@ -7,17 +7,6 @@
   <body>
 		<script type="text/javascript">
 
-			// object is an key - value pair
-			var myObject = {
-				a: undefined,
-				b: null,
-				c: "foo",
-				d: 3.14,
-				f: function bar() {
-				},
-				g: {a: true}
-			}
-
 			// primitiv variable are passed by values
 			var a,b;
 			a = 42;
@@ -29,14 +18,43 @@
 				console.log(b); // 42
 			})();
 
-			//obecjts are stored by refernces / pointers
+			// object is an key - value pair
+			var myObject = {
+				a: undefined,
+				b: null,
+				c: "foo",
+				d: 3.14,
+				f: function bar() {
+				},
+				g: {a: true}
+			}
+
+			//function - ist nothing more than object
+			/*
+			 * Function has properties:
+			 * name:myFunction
+			 * length:2
+			 * prototype:..
+			*/
+			function myFunction(a,b) {
+				return 42;
+			}
+
+			//obecjts (also functiopns) are stored by refernces / pointers
 			myObject2 = myObject;
 			myObject.a = 'foo';
+
+			myFunction.foo = "bar";
+			var myFunction2 = myFunction;
 
 			(function() {
 				console.log(myObject.a); //foo
 				console.log(myObject2.a); //foo
+				console.log(myFunction2()); //42
+				console.log(myFunction2.foo); //bar
 			})();
+
+
 
 		</script>
   </body>
