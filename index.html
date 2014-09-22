@@ -6,6 +6,38 @@
   </head>
   <body>
 		<script type="text/javascript">
+
+			// object is an key - value pair
+			var myObject = {
+				a: undefined,
+				b: null,
+				c: "foo",
+				d: 3.14,
+				f: function bar() {
+				},
+				g: {a: true}
+			}
+
+			// primitiv variable are passed by values
+			var a,b;
+			a = 42;
+			b = a;
+			a= 10;
+
+			(function() {
+				console.log(a); // 10
+				console.log(b); // 42
+			})();
+
+			//obecjts are stored by refernces / pointers
+			myObject2 = myObject;
+			myObject.a = 'foo';
+
+			(function() {
+				console.log(myObject.a); //foo
+				console.log(myObject2.a); //foo
+			})();
+
 		</script>
   </body>
 </html>
