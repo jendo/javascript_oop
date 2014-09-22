@@ -8,23 +8,27 @@
 		<script type="text/javascript">
 			"use strict";
 
-			function testMethod(){
-				return this.val;
-			}
+			//THE FUNDAMENTALS OF PROTOTYPE BASE INHERITANCE IN JS
 
 			//mehod - function in object
-			var myObject = {
-				get: function myMethod() {
+			var parent = {
+				get: function fn() {
+					console.log(this.val);
 					return this.val;
 				},
-				test: testMethod,
 				val: 42
 			};
 
+			// extend from parent object
+			var child = Object.create(parent);
+			child.val = 3.14;
+
+			var grandchild = Object.create(child);
+
 			(function() {
-				console.log(myObject.get());
-				console.log(testMethod()); // Error: can not read property of undefined
-				console.log(testMethod.call(myObject)); // 42
+				parent.get();
+				child.get();
+				grandchild.get();
 			})();
 
 
